@@ -7,8 +7,17 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'test'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'test'
+          }
+        }
+        stage('daishen') {
+          steps {
+            echo 'daishen'
+          }
+        }
       }
     }
   }
